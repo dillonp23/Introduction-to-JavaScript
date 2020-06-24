@@ -2,24 +2,38 @@
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
 
 
+const votingAge = 20;
+if (votingAge > 18) {
+    console.log(true);
+}
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
 
+let name = "Dillon";
+const newName = "Jacob";
+name = newName;
+console.log(name);
 
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
-
+const year = "1999";
+const yearInt = Number(year);
+console.log(yearInt);
 
 
 
 //Task d: Write a function to multiply a*b 
 
+function multiply(a, b) {
+    console.log(a*b);
+}
 
+multiply(4,6);
 
 
 
@@ -28,7 +42,11 @@
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
 
 
+function ageInDogYears(age) {
+    console.log(age*7);
+}
 
+ageInDogYears(26);
 
 
 /************************************************************** Task 3 **************************************************************/
@@ -49,8 +67,33 @@
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
   
+function dogFeeder(weight, age) {
+    
+    if (age >= 1) {
+        if (weight <= 5) {
+            foodAmt = weight * 0.05;
+        } else if (5 < weight && weight <= 10) {
+            foodAmt = weight * 0.04;
+        } else if (10 < weight && weight <= 15) {
+            foodAmt = weight * 0.03;
+        } else {
+            foodAmt = weight * 0.02;
+        }
+    } else {
+        if (2/12 <= age && age < 4/12) {
+            foodAmt = weight * 0.10;
+        } else if (4/12 <= age && age < 7/12) {
+            foodAmt = weight * 0.05;
+        } else if (7/12 <= age && age < 1) {
+            foodAmt = weight * 0.04;
+        } else {
+            foodAmt = "Too young to calculate accurately";
+        }
+    }
+    console.log(foodAmt);
+}
 
-
+dogFeeder(15, 1);
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -60,7 +103,35 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+  // 0 = rock
+  // 1 = paper
+  // 2 = scissors
+
+  function rockPaperScissors(userChoice) {
+    switch (userChoice) {
+        case "rock":
+            userInt = 0;
+        case "paper":
+            userInt = 1;
+        case "scissors":
+            userInt = 2;
+    }
+    let computerChoice = Math.floor(Math.random() * 3);
+    console.log(computerChoice);
+
+    if (computerChoice == userChoice) {
+        return "It's a tie";
+    }
+    if (userChoice > 0 && (userChoice - 1) == computerChoice) {
+        return "You win!";
+    } else  if (userChoice == 0 && computerChoice == 2) {
+        return "You win!";
+    } else {
+        return "You lose!";
+    }
+  }
+
+  console.log(rockPaperScissors(1));
   
 
 /************************************************************** Task 5 **************************************************************/
