@@ -107,31 +107,44 @@ dogFeeder(15, 1);
   // 1 = paper
   // 2 = scissors
 
-  function rockPaperScissors(userChoice) {
-    switch (userChoice) {
+  function getIntFor(choice) {
+    switch (choice) {
         case "rock":
-            userInt = 0;
+            return 0;
         case "paper":
-            userInt = 1;
+            return 1;
         case "scissors":
-            userInt = 2;
+            return 2;
     }
-    let computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice);
+}
 
-    if (computerChoice == userChoice) {
-        return "It's a tie";
+function getStringFor(choice) {
+    switch (choice) {
+        case 0:
+            return "rock";
+        case 1:
+            return "paper";
+        case 2:
+            return "scissors";
     }
-    if (userChoice > 0 && (userChoice - 1) == computerChoice) {
+}
+
+  function rockPaperScissors(userChoice) {
+     
+    userChoice = getIntFor(userChoice);
+    
+    let computerChoice = Math.floor(Math.random() * 3);
+    console.log(getStringFor(computerChoice));
+    
+    if (userChoice - 1 == computerChoice || userChoice + 2  == computerChoice) {
         return "You win!";
-    } else  if (userChoice == 0 && computerChoice == 2) {
-        return "You win!";
-    } else {
-        return "You lose!";
+    } else if (userChoice == computerChoice) {
+        return "It's a tie!";
     }
+     return "You lose!";
   }
 
-  console.log(rockPaperScissors(1));
+  console.log(rockPaperScissors("rock"));
   
 
 /************************************************************** Task 5 **************************************************************/
